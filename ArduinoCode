@@ -1,0 +1,47 @@
+#define LOAD 3 //ST_CP to Digital Pin 4
+#define CLOCK 4 //SH_CP to Digital Pin 3
+#define DATA 2 //DS to Digital Pin 2
+
+byte countdown_to_zero[10] = { B11111100,  // = 0
+                              B01100000,  // = 1
+                              B11011010,  // = 2
+                              B11110010,  // = 3
+                              B01100110,  // = 4
+                              B10110110,  // = 5
+                              B10111110,  // = 6
+                              B11100000,  // = 7
+                              B11111110,  // = 8
+                              B11100110   // = 9
+                             };
+
+
+void setup(){
+ 
+  pinMode(LOAD, OUTPUT);
+  pinMode(CLOCK, OUTPUT);
+  pinMode(DATA, OUTPUT);
+}
+  // display a number on the digital segment display
+void sevenSegWrite(byte digit) {
+  
+  // set the latchPin to low potential, before sending data
+  digitalWrite(LOAD, LOW);
+     
+  // the bit pattern data
+  shiftOut(DATA, CLOCK, LSBFIRST, countdown_to_zero[digit]);  
+ 
+  // set the latchPin to high potential, after sending data
+  digitalWrite(LOAD, HIGH);
+}
+ 
+
+void loop(){
+  //countdown loop
+ for (byte digit = 10; digit > 0; --digit) {
+    delay(1000);
+    sevenSegWrite(digit - 1); 
+  }
+   
+  // pause
+  delay(3000);
+}
