@@ -6,6 +6,6 @@ Hello everyone! After a long time of not posting (Fall 2017 started), I am back 
 
 Project Documentation here: https://preciousgracebrazil.wordpress.com/project-type/controlling-7-segment-display-with-a-shift-register-in-arduino
 
-Google Doc: 
+Google Doc: https://docs.google.com/document/d/1DT9v3wvNghvrCIGOk2v1uNKcxJx8KYGALfv_eTOnYto/edit?usp=sharing
 
 Happy Making everyone!
